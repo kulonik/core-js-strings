@@ -301,8 +301,9 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowels = str.match(/[aeiouy]/gi);
+  return vowels === null ? 0 : vowels.length;
 }
 
 /**
@@ -318,8 +319,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const string = str.split(/\s+/).join('').toLowerCase();
+  const reversedStr = string.split('').reverse().join('');
+  return string === reversedStr;
 }
 
 /**
@@ -334,8 +337,9 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  const str = sentence.split(' ');
+  return str.sort((a, b) => b.length - a.length)[0];
 }
 
 /**
@@ -351,7 +355,6 @@ function findLongestWord(/* sentence */) {
 function reverseWords(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Inverts the case of each character in the given string.
  *
@@ -363,8 +366,11 @@ function reverseWords(/* str */) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  return str
+    .split('')
+    .map((c) => (c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()))
+    .join('');
 }
 
 /**
@@ -380,8 +386,8 @@ function invertCase(/* str */) {
  *   getStringFromTemplate('John','Doe') => 'Hello, John Doe!'
  *   getStringFromTemplate('Chuck','Norris') => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(firstName, lastName) {
+  return `${firstName} ${lastName}`;
 }
 
 /**
